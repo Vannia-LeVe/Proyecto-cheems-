@@ -4,13 +4,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
     document.getElementById("btn-save").addEventListener("click",saveWinner);
     document.getElementById("btn-reset").addEventListener("click", resetGame);
 
-    intentos = 0; 
+    let intentos = 0; 
     let randomNumber= Math.floor(Math.random() * 14  ) + 1 ;
     //TODO eliminar antes de publicar el juego
     console.log('Número aleatorio :', randomNumber);
-    const imagenes = document.querySelectorAll('.cheems-card img');
 
+    const imagenes = document.querySelectorAll('.cheems-card img');
     const clickCards= new Set();
+
+    document.getElementById("btn-save").addEventListener("click", saveWinner);
+    document.getElementById("btn-reset").addEventListener("click", resetGame);
+
+
 
     imagenes.forEach((img, index)=>{
         const id=index + 1;
@@ -63,8 +68,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
             body: JSON.stringify({
                 name: name,
                  email: email, 
-                 phrase: phrase
-                 //intentos:intentos
+                 phrase: phrase,
+                 intentos:intentos
                  //AQUI NOMAS ES PONER LA VARIABLE INTENTOS PARA QUE SE GUARDE EN LA BASE DE DATOS.
             })
         })
@@ -91,7 +96,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         });
         randomNumber = Math.floor(Math.random() * 14) + 1;
         console.log('Nuevo numero aleatorio :', randomNumber);
-        intentos = intentos + 1;
+        intentos++;
         console.log('Numero de Intentos: ', intentos);
     }
 });           
