@@ -17,8 +17,8 @@ class Winner:
             connection = get_connection()
             cursor = connection.cursor()
             
-        #fecha y hora en la que gano el usuario
-        #consulta parametrizada
+        #fecha y hora en la que ganó el usuario
+        #consulta
             query = "INSERT INTO winners (name, email, phrase, intentos) VALUES (%s, %s, %s, %s)"
             cursor.execute(query, (self.name, self.email, self.phrase, self.intentos))
             connection.commit()
