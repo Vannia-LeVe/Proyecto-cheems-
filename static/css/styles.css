@@ -2990,9 +2990,9 @@ progress {
   --bs-table-border-color: #ffb6d8;
   --bs-table-striped-bg: #ffb6d8;
   --bs-table-striped-color: #662339;
-  --bs-table-active-bg: #d2edcd;
+  --bs-table-active-bg: #9ff186e3;
   --bs-table-active-color: #720b36;
-  --bs-table-hover-bg: #cdedcf;
+  --bs-table-hover-bg: #9ff186e3;
   --bs-table-hover-color: #523440;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);

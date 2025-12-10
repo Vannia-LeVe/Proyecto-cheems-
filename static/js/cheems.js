@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', ()=> {
 
 
+    //se inicializa el contador 
+    document.getElementById("btn-save").addEventListener("click", saveWinner);
+
     document.getElementById("btn-save").addEventListener("click",saveWinner);
     document.getElementById("btn-reset").addEventListener("click", resetGame);
 
@@ -11,10 +14,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     const imagenes = document.querySelectorAll('.cheems-card img');
     const clickCards= new Set();
-
-    document.getElementById("btn-save").addEventListener("click", saveWinner);
-    document.getElementById("btn-reset").addEventListener("click", resetGame);
-
 
 
     imagenes.forEach((img, index)=>{
@@ -81,6 +80,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
             if (result.success){
             alert("¡Datos guardados correctamente! Gracias por participar.");
             intentos = 0;
+            document.getElementById('contador-intentos').textContent = intentos;
+
             
         } else {
             alert("Hubo un error al guardar tus datos. Por favor, intenta mas tarde.");
@@ -97,5 +98,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         console.log('Nuevo numero aleatorio :', randomNumber);
         intentos++;
         console.log('Numero de Intentos: ', intentos);
+        document.getElementById('contador-intentos').textContent = intentos;
+
     }
 });           
