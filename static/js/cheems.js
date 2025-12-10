@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
     document.getElementById("btn-save").addEventListener("click",saveWinner);
+    document.getElementById("btn-reset").addEventListener("click", resetGame);
 
-
-    const randomNumber= Math.floor(Math.random() * 14  ) + 1 ;
+    intentos = 0; 
+    let randomNumber= Math.floor(Math.random() * 14  ) + 1 ;
     //TODO eliminar antes de publicar el juego
     console.log('Número aleatorio :', randomNumber);
     const imagenes = document.querySelectorAll('.cheems-card img');
@@ -14,6 +15,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     imagenes.forEach((img, index)=>{
         const id=index + 1;
         img.dataset.id = id;
+        //GUARDA LAS IMAGENES ORIGINALES
+        img.dataset.original = img.src;
 
         img.addEventListener('click', ()=>{
             if(!clickCards.has(id)){
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                     const modal= new bootstrap.Modal(document.getElementById('modal-winner'));
                     modal.show();
                     //alert('Ganaste, felicidades');
+
                 }
             }}
         })
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                  email: email, 
                  phrase: phrase
                  //intentos:intentos
+                 //AQUI NOMAS ES PONER LA VARIABLE INTENTOS PARA QUE SE GUARDE EN LA BASE DE DATOS.
             })
         })
         .then(response => {
@@ -71,9 +76,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
         .then(result =>{
             if (result.success){
             alert("¡Datos guardados correctamente! Gracias por participar.");
+            intentos = 0;
+            
         } else {
             alert("Hubo un error al guardar tus datos. Por favor, intenta mas tarde.");
         }
         })
         }
+
+    function resetGame(){
+        clickCards.clear();
+        imagenes.forEach(img => {
+            img.src = img.dataset.original || img.src;
+        });
+        randomNumber = Math.floor(Math.random() * 14) + 1;
+        console.log('Nuevo numero aleatorio :', randomNumber);
+        intentos = intentos + 1;
+        console.log('Numero de Intentos: ', intentos);
+    }
 });           
