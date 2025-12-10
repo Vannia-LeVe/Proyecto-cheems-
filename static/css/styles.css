@@ -2985,18 +2985,33 @@ progress {
   --bs-table-bg-state: var(--bs-table-hover-bg);
 }
 .table-primary {
-  --bs-table-color: #8f0f35bd;
-  --bs-table-bg: #ffb6d8;
-  --bs-table-border-color: #ffb6d8;
-  --bs-table-striped-bg: #ffb6d8;
-  --bs-table-striped-color: #662339;
-  --bs-table-active-bg: #9ff186e3;
-  --bs-table-active-color: #720b36;
-  --bs-table-hover-bg: #9ff186e3;
-  --bs-table-hover-color: #523440;
+  --bs-table-color: #374937;
+  --bs-table-bg: transparent;
+  --bs-table-border-color: #dde5dd;
+  --bs-table-striped-bg: #f9fbf9;
+  --bs-table-striped-color: #374937;
+  --bs-table-active-bg: #60b64b8e;
+  --bs-table-active-color: #0f5f0f;
+  --bs-table-hover-bg: #edf3ec;
+  --bs-table-hover-color: #1e3a1d;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
 }
+.table-primary {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-primary th {
+  background-color: #e8efe7;      
+  color: #1e3a1d;                     
+  font-weight: 600;
+  border-bottom: 2px solid #a3c29e;  
+}
+
+
+
+
 .table-secondary {
   --bs-table-color: #343f52;
   --bs-table-bg: #eeeff2;
