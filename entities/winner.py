@@ -3,7 +3,7 @@ from persistence.db import get_connection
 
 class Winner:
 
-    def __init__(self, id, name, email, phrase, intentos, fecha_hora):
+    def __init__(self, id, name, email, phrase, intentos,fecha_hora=None):
         self.id = id
         self.name = name
         self.email = email
@@ -39,7 +39,7 @@ class Winner:
             connection = get_connection()
             cursor = connection.cursor()
             
-            query = "SELECT id, name, email, phrase, intentos, fecha_hora FROM winners" #ORDER BY 
+            query = "SELECT id, name, email, phrase, intentos, fecha_hora FROM winners ORDER BY intentos ASC, fecha_hora DESC" #ORDER BY 
             cursor.execute(query)
             #va,os a obtener todos los resultados del query
             rows = cursor.fetchall()# obtener o buscar

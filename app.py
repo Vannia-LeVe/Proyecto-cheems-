@@ -14,9 +14,9 @@ def index():
 def save_winner():
     data = request.get_json()
 
-    winner = Winner(id=0, name=data['name'], email=data['email'], phrase=data['phrase'], intentos=data['intentos'])
+    winner = Winner(id=0, name=data['name'], email=data['email'], phrase=data['phrase'],intentos=data['intentos'])
+
     winner.save()
-    
     if winner.id != 0:
         return jsonify({"success": True, "id": winner.id, "mesajito":"hola"}), 201
     else:

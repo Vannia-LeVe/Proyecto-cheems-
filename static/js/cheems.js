@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 name: name,
                  email: email, 
                  phrase: phrase,
-                 intentos:intentos
-                 //AQUI NOMAS ES PONER LA VARIABLE INTENTOS PARA QUE SE GUARDE EN LA BASE DE DATOS.
+                 intentos:intentos //AQUI NOMAS ES PONER LA VARIABLE INTENTOS PARA QUE SE GUARDE EN LA BASE DE DATOS.
             })
         })
         .then(response => {
