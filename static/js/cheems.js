@@ -40,6 +40,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 img.src=window.IMG_OK;
                 
                 if (clickCards.size === 14){
+                    const confetti = document.getElementById('confetti-ganador');
+                    confetti.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        confetti.style.display = 'none';
+                    }, 4000);
+                    
                     const modal= new bootstrap.Modal(document.getElementById('modal-winner'));
                     modal.show();
                     //alert('Ganaste, felicidades');
