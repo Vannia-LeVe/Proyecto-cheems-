@@ -17,6 +17,8 @@
     <th>Frase </th>
     <th>Intentos</th>
     <th>Fecha y hora</th>
+    <th>Herramienta</th>
+
 
 </tr>   
 </thead>
@@ -28,11 +30,19 @@
     <td>{{ w.phrase }}</td>
     <td>{{ w.intentos }}</td>
     <td>{{ w.fecha_hora }}</td>
+    <td>
+         <a href="/winners/delete/{{ w.id }}" 
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('¿Eliminar este registro?');">
+                                Eliminar
+            </a>
+                            </button>
+                    </td>
 
 </tr>
 {% else %}
 <tr>
-    <td colspan="3">No hay ganadores aún.</td>
+    <td colspan="6">No hay ganadores aún.</td>
 </tr>
 {% endfor %}
 </table>

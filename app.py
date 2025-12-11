@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, redirect, render_template, request, jsonify, url_for
 from entities.winner import Winner
 
 app = Flask(__name__)
@@ -26,7 +26,10 @@ def save_winner():
 def get_winners():
     return render_template('winners.html', winners = Winner.get_all())
     
-
+@app.route('/winners/delete/<int:id>', methods=['GET'])
+def delete_winner(id):
+    Winner.delete_w(id)
+    return redirect(url_for('get_winners'))
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)

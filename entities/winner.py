@@ -55,4 +55,19 @@ class Winner:
         finally:
             cursor.close()
             connection.close()
+    @classmethod    
+    def delete_w(cls, winner_id): 
+        try:
+            connection = get_connection()
+            cursor = connection.cursor()
             
+            query = "DELETE FROM winners WHERE id = %s"
+            cursor.execute(query, (winner_id,))
+            connection.commit()
+            return True
+        except Exception as ex: 
+            print("Error al obtener registros: ", ex)
+            return False
+        finally:
+            cursor.close()
+            connection.close()
