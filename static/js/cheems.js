@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     document.getElementById("btn-save").addEventListener("click",saveWinner);
     document.getElementById("btn-reset").addEventListener("click", resetGame);
 
-    let intentos = 0; 
+    let intentos = 1; 
     let randomNumber= Math.floor(Math.random() * 14  ) + 1 ;
     //TODO eliminar antes de publicar el juego
     console.log('Número aleatorio :', randomNumber);
